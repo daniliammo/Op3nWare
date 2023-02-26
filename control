@@ -1,0 +1,10 @@
+Package: com.gaifam.openware
+Name: OPENWare
+Depends: mobilesubstrate
+Version: 0.1
+Architecture: iphoneos-arm
+Description: Open Mod menu
+Maintainer: DANILIAMMO
+Author: DANILIAMMO
+Section: Tweaks
+Homepage: https://github.com/daniliammo/OpenWare
