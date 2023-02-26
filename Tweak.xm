@@ -91,21 +91,17 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
 
 		// Website link, remove it if you don't need it.
-		[alert addButton: NSSENCRYPT("Visit Me!") actionBlock: ^(void) {
-			[[UIApplication sharedApplication] openURL: [NSURL URLWithString: NSSENCRYPT("@@SITE@@")]];
-			timer(2) {
-				setupMenu();
-			});				
-		}];
+		[alert addButton: NSSENCRYPT("Не запускать") actionBlock: ^(void) {	}];
 
-		[alert addButton: NSSENCRYPT("Thankyou, understood.") actionBlock: ^(void) {
+		[alert addButton: NSSENCRYPT("Запустить") actionBlock: ^(void) 
+		{
 			timer(2) {
 				setupMenu();
 			});
 		}];		
 
 		alert.shouldDismissOnTapOutside = NO;
-		alert.customViewColor = [UIColor purpleColor];	
+		// alert.customViewColor = UIColorFromHEX(0x002EF0);	
 		alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;	 
 		
 		[alert showSuccess: nil
