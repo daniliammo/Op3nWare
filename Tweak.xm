@@ -7,7 +7,9 @@ void setup()
 {
 
 	// patching offsets directly, without switch
-	/// patchOffset(ENCRYPTOFFSET("0x1002DB3C8"), ENCRYPTHEX("0xC0035FD6"));
+	
+	// patchOffset(ENCRYPTOFFSET("0x1C6C2E4"), ENCRYPTHEX("0xC0035FD6"));
+	
 	/// patchOffset(ENCRYPTOFFSET("0x10020D2D4"), ENCRYPTHEX("0x00008052C0035FD6"));
 
 	// You can write as many bytes as you want to an offset
@@ -19,49 +21,49 @@ void setup()
 
 
 	// Empty switch - usefull with hooking
-	[switches addSwitch:NSSENCRYPT("Masskill")
-		description:NSSENCRYPT("Teleport all enemies to you without them knowing")
+	[switches addSwitch:NSSENCRYPT("Antiban is enabled")
+		description:NSSENCRYPT("Game Anti-cheat manager is disabled.")
 	];
 
-	// Offset Switch with one patch
-	[switches addOffsetSwitch:NSSENCRYPT("God Mode")
-		description:NSSENCRYPT("You can't die")
-		offsets: {
-			ENCRYPTOFFSET("0x1005AB148")
-		}
-		bytes: {
-			ENCRYPTHEX("0x00E0BF12C0035FD6")
-		}
-	];
+	// // Offset Switch with one patch
+	// [switches addOffsetSwitch:NSSENCRYPT("God Mode")
+	// 	description:NSSENCRYPT("You can't die")
+	// 	offsets: {
+	// 		ENCRYPTOFFSET("0x1C6C2E4")
+	// 	}
+	// 	bytes: {
+	// 		ENCRYPTHEX("0xC0035FD6")
+	// 	}
+	// ];
 
-	// Offset switch with multiple patches
-	[switches addOffsetSwitch:NSSENCRYPT("One Hit Kill")
-		description:NSSENCRYPT("Enemy will die instantly")
-		offsets: {
-			ENCRYPTOFFSET("0x1001BB2C0"),
-			ENCRYPTOFFSET("0x1002CB3B0"),
-			ENCRYPTOFFSET("0x1002CB3B8")
-		}
-		bytes: {
-			ENCRYPTHEX("0x00E0BF12C0035FD6"),
-			ENCRYPTHEX("0xC0035FD6"),
-			ENCRYPTHEX("0x00F0271E0008201EC0035FD6")
-		}
-	];
+	// // Offset switch with multiple patches
+	// [switches addOffsetSwitch:NSSENCRYPT("One Hit Kill")
+	// 	description:NSSENCRYPT("Enemy will die instantly")
+	// 	offsets: {
+	// 		ENCRYPTOFFSET("0x1001BB2C0"),
+	// 		ENCRYPTOFFSET("0x1002CB3B0"),
+	// 		ENCRYPTOFFSET("0x1002CB3B8")
+	// 	}
+	// 	bytes: {
+	// 		ENCRYPTHEX("0x00E0BF12C0035FD6"),
+	// 		ENCRYPTHEX("0xC0035FD6"),
+	// 		ENCRYPTHEX("0x00F0271E0008201EC0035FD6")
+	// 	}
+	// ];
 
-	// Textfield Switch - used in hooking
-	[switches addTextfieldSwitch:NSSENCRYPT("Custom Gold")
-		description:NSSENCRYPT("Here you can enter your own gold amount")
-		inputBorderColor:UIColorFromHex(0x002EF0)
-	];
+	// // Textfield Switch - used in hooking
+	// [switches addTextfieldSwitch:NSSENCRYPT("Custom Gold")
+	// 	description:NSSENCRYPT("Here you can enter your own gold amount")
+	// 	inputBorderColor:[UIColor colorWithRed: 0.01 green: 0.01 blue: 0.85 alpha: 1.00]
+	// ];
 
-	// Slider Switch - used in hooking
-	[switches addSliderSwitch:NSSENCRYPT("Custom Move Speed")
-		description:NSSENCRYPT("Set your custom move speed")
-		minimumValue:0
-		maximumValue:10
-		sliderColor:UIColorFromHex(0x002EF0)
-	];
+	// // Slider Switch - used in hooking
+	// [switches addSliderSwitch:NSSENCRYPT("Custom Move Speed")
+	// 	description:NSSENCRYPT("Set your custom move speed")
+	// 	minimumValue:0
+	// 	maximumValue:10
+	// 	sliderColor:[UIColor colorWithRed: 0.01 green: 0.01 blue: 0.85 alpha: 1.00]
+	// ];
 }
 
 
@@ -78,11 +80,6 @@ void setup()
 		 menuIcon & menuButton is base64 data, upload a image to: https://www.browserling.com/tools/image-to-base64 \
 		 then replace that string with mine.
 ************************************************************************************************************/
-void setupMenu() 
-{
-	#import "icons.h"
-	setup();
-}
 
 // If the menu button doesn't show up; Change the timer to a bigger amount.
 static void didFinishLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef info) 
@@ -95,13 +92,14 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 
 		[alert addButton: NSSENCRYPT("Запустить") actionBlock: ^(void) 
 		{
-			timer(2) {
-				setupMenu();
+			timer(5) {
+				#import "icons.h"
+				setup();
 			});
-		}];		
+		}];	
 
 		alert.shouldDismissOnTapOutside = NO;
-		// alert.customViewColor = UIColorFromHEX(0x002EF0);	
+		alert.customViewColor = [UIColor colorWithRed: 0.18 green: 0.18 blue: 0.18 alpha: 1.00];
 		alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;	 
 		
 		[alert showSuccess: nil

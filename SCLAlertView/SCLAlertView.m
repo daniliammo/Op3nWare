@@ -245,10 +245,10 @@ SCLTimerDisplay *buttonTimer;
     [_contentView addSubview:_labelTitle];
     
     // Colors
-    self.backgroundViewColor = [UIColor whiteColor]; // White
-    _labelTitle.textColor = UIColorFromHEX(0x002EF0); // Blue
-    _viewText.textColor = UIColorFromHEX(0x002EF0); // Blue
-    _contentView.layer.borderColor = UIColorFromHEX(0x000000).CGColor; // Black
+    self.backgroundViewColor = [UIColor whiteColor];
+    _labelTitle.textColor = UIColorFromHEX(0x4D4D4D); //Dark Grey
+    _viewText.textColor = UIColorFromHEX(0x4D4D4D); //Dark Grey
+    _contentView.layer.borderColor = UIColorFromHEX(0xCCCCCC).CGColor; //Light Grey
 }
 
 - (void)setupNewWindow {
@@ -261,13 +261,6 @@ SCLTimerDisplay *buttonTimer;
     alertWindow.backgroundColor = [UIColor clearColor];
     alertWindow.rootViewController = [UIViewController new];
     alertWindow.accessibilityViewIsModal = YES;
-
-    self.backgroundViewColor = [UIColor whiteColor]; // White
-    _labelTitle.textColor = UIColorFromHEX(0x002EF0); // Blue
-    _viewText.textColor = UIColorFromHEX(0x002EF0); // Blue
-    _contentView.layer.borderColor = [UIColor blackColor].CGColor; // Black
-    self.customViewColor = UIColorFromHEX(0x002EF0);
-
     self.SCLAlertWindow = alertWindow;
     self.usingNewWindow = YES;
 }
