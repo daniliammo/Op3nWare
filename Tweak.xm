@@ -25,16 +25,26 @@ void setup()
 		description:NSSENCRYPT("Game Anti-cheat manager is disabled.")
 	];
 
+	//Or check directly:
+	if([switches isSwitchOn:NSSENCRYPT("Antiflash")]) 
+	{
+		// patchOffset(ENCRYPTOFFSET("0x3404FB4"), ENCRYPTHEX("0x200080D2C0035FD6"));
+		// patchOffset(ENCRYPTOFFSET("0x1CED4D8"), ENCRYPTHEX("0x20008052C0035FD6"));
+		patchOffset(ENCRYPTOFFSET("0x1C6FDB8"), ENCRYPTHEX("0xC0035FD6"));
+	}
+
 	// // Offset Switch with one patch
-	// [switches addOffsetSwitch:NSSENCRYPT("God Mode")
-	// 	description:NSSENCRYPT("You can't die")
-	// 	offsets: {
-	// 		ENCRYPTOFFSET("0x1C6C2E4")
-	// 	}
-	// 	bytes: {
-	// 		ENCRYPTHEX("0xC0035FD6")
-	// 	}
-	// ];
+	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
+	 	description:NSSENCRYPT("Antiflash")
+	 	offsets: 
+		{
+	 		ENCRYPTOFFSET("0x1C6FDB8")
+	 	}
+	 	bytes: 
+		{
+	 		ENCRYPTHEX("0xC0035FD6")
+		}
+	];
 
 	// // Offset switch with multiple patches
 	// [switches addOffsetSwitch:NSSENCRYPT("One Hit Kill")
@@ -101,9 +111,9 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		alert.shouldDismissOnTapOutside = NO;
 		alert.customViewColor = [UIColor colorWithRed: 0.18 green: 0.18 blue: 0.18 alpha: 1.00];
 		alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;	 
-		
+
 		[alert showSuccess: nil
-						subTitle:NSSENCRYPT("@@APPNAME@@ - Mod Menu \n\nThis Mod Menu has been made by @@USER@@, do not share this without proper credits and my permission. \n\nEnjoy!") 
+						subTitle:NSSENCRYPT("Openware") 
 							closeButtonTitle:nil
 								duration:60];
 	});

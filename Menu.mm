@@ -226,7 +226,7 @@ void restoreLastSession() {
     SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
 
     alert.shouldDismissOnTapOutside = NO;
-    alert.customViewColor = [UIColor colorWithRed: 0.18 green: 0.18 blue: 0.18 alpha: 1.00];       // Purple
+    alert.customViewColor = [UIColor colorWithRed: 0.18 green: 0.18 blue: 0.18 alpha: 1.00];       // был Purple
     alert.showAnimationType = SCLAlertViewShowAnimationFadeIn;
 
     [alert addButton: @"OK" actionBlock: ^(void) {
