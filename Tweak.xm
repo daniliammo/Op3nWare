@@ -26,12 +26,12 @@ void setup()
 	];
 
 	//Or check directly:
-	if([switches isSwitchOn:NSSENCRYPT("Antiflash")]) 
-	{
+	// if([switches isSwitchOn:NSSENCRYPT("Antiflash")]) 
+	// {
 		// patchOffset(ENCRYPTOFFSET("0x3404FB4"), ENCRYPTHEX("0x200080D2C0035FD6"));
 		// patchOffset(ENCRYPTOFFSET("0x1CED4D8"), ENCRYPTHEX("0x20008052C0035FD6"));
-		patchOffset(ENCRYPTOFFSET("0x1C6FDB8"), ENCRYPTHEX("0xC0035FD6"));
-	}
+		// patchOffset(ENCRYPTOFFSET("0x1C6FDB8"), ENCRYPTHEX("0xC0035FD6"));
+	// }
 
 	// // Offset Switch with one patch
 	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
@@ -42,7 +42,7 @@ void setup()
 	 	}
 	 	bytes: 
 		{
-	 		ENCRYPTHEX("0xC0035FD6")
+	 		ENCRYPTHEX("0x00008052C0035FD6")
 		}
 	];
 
