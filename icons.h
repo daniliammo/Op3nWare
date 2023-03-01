@@ -14,9 +14,9 @@ menu = [[Menu alloc]
 	titleColor:[UIColor blackColor]
 	titleFont:NSSENCRYPT("Avenir")
 	credits:NSSENCRYPT("Openware DEBIAN v0.1")
-	headerColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.75]	// White
-	switchOffColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.75] // White
-	switchOnColor:[UIColor colorWithRed: 0.01 green: 0.01 blue: 0.85 alpha: 0.75] // Blue
+	headerColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.7]	// White
+	switchOffColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.7] // White
+	switchOnColor:[UIColor colorWithRed: 0.01 green: 0.01 blue: 0.85 alpha: 0.7] // Blue
 	switchTitleFont:NSSENCRYPT("Avenir")
 	switchTitleColor:[UIColor blackColor]
 	infoButtonColor:[UIColor blackColor]

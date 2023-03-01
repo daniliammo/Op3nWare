@@ -1,4 +1,5 @@
 # THEOS_DEVICE_IP = 127.0.0.1 -p 2222 # install to device from pc
+
 ARCHS = arm64 #arm64e
 DEBUG = 0
 FINALPACKAGE = 1
@@ -28,6 +29,7 @@ endif
 PROJ_COMMON_FRAMEWORKS = UIKit Foundation Security QuartzCore CoreGraphics CoreText
 
 ## source files ##
+UTILS_SRC = $(wildcard HelperFiles/utils.h)
 KITTYMEMORY_SRC = $(wildcard KittyMemory/*.cpp)
 SCLALERTVIEW_SRC =  $(wildcard SCLAlertView/*.m)
 MENU_SRC = Menu.mm
@@ -59,4 +61,4 @@ internal-package-check::
 	@./versionCheck.sh # Script to verify template's current version
 
 after-install::
-	install.exec "killall -9 @@BINARYNAME@@ || :"
+	install.exec "killall -9 Standoff2 || :"

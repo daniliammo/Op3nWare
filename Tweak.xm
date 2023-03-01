@@ -1,14 +1,21 @@
 #import "Macros.h"
+#include "dlfcn.h"
+#include "Unity.h"
 
 /***********************************************************
 	INSIDE THE FUNCTION BELOW YOU'LL HAVE TO ADD YOUR SWITCHES!
 ***********************************************************/
+
 void setup() 
 {
 
+	if([switches isSwitchOn:@"Antiflash(switch)"])
+	{
+		patchOffset(ENCRYPTOFFSET("0x1C6FDB8"), ENCRYPTHEX("0x00008052C0035FD6"));
+	}
+
 	// patching offsets directly, without switch
-	
-	// patchOffset(ENCRYPTOFFSET("0x1C6C2E4"), ENCRYPTHEX("0xC0035FD6"));
+	// patchOffset(ENCRYPTOFFSET("0x1C68D54"), ENCRYPTHEX("0xC0035FD6"));
 	
 	/// patchOffset(ENCRYPTOFFSET("0x10020D2D4"), ENCRYPTHEX("0x00008052C0035FD6"));
 
@@ -25,6 +32,10 @@ void setup()
 		description:NSSENCRYPT("Game Anti-cheat manager is disabled.")
 	];
 
+	[switches addSwitch:NSSENCRYPT("Antiflash(switch)")
+		description:NSSENCRYPT("test.arm")
+	];
+
 	//Or check directly:
 	// if([switches isSwitchOn:NSSENCRYPT("Antiflash")]) 
 	// {
@@ -34,8 +45,14 @@ void setup()
 	// }
 
 	// // Offset Switch with one patch
-	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
-	 	description:NSSENCRYPT("Antiflash")
+
+	[switches addOffsetSwitch:@"Money"
+				description:@"Money"
+					offsets:{0x1CA5CA4}
+					bytes:{"0x00008052C0035FD6"}];
+
+	[switches addOffsetSwitch:NSSENCRYPT("Antiflash(offsetswitch)")
+	 	description:NSSENCRYPT("Antiflash(offsetswitch")
 	 	offsets: 
 		{
 	 		ENCRYPTOFFSET("0x1C6FDB8")
@@ -43,6 +60,26 @@ void setup()
 	 	bytes: 
 		{
 	 		ENCRYPTHEX("0x00008052C0035FD6")
+		}
+	];
+
+	[switches addOffsetSwitch:NSSENCRYPT("Radar")
+	description:NSSENCRYPT("Radar Hack")
+				offsets:{
+		ENCRYPTOFFSET("0x1E17220") //оффсет
+	}
+						bytes: {
+		ENCRYPTHEX("0x20008052C0035FD6") //байт. В данном случае я использую True/истина/всегда. Показывать противников на радаре true 
+		}
+	];
+
+	[switches addOffsetSwitch:NSSENCRYPT("Radar2")
+	description:NSSENCRYPT("Radar Hack2")
+				offsets:{
+		ENCRYPTOFFSET("0x1E17558") //оффсет
+	}
+						bytes: {
+		ENCRYPTHEX("0x20008052C0035FD6") //байт. В данном случае я использую True/истина/всегда. Показывать противников на радаре true 
 		}
 	];
 
