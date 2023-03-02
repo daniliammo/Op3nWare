@@ -1,5 +1,5 @@
 Package: com.gaifam.openware
-Name: OPENWare
+Name: OpenWare
 Depends: mobilesubstrate
 Version: 0.1
 Architecture: iphoneos-arm

@@ -9,11 +9,6 @@
 void setup() 
 {
 
-	if([switches isSwitchOn:@"Antiflash(switch)"])
-	{
-		patchOffset(ENCRYPTOFFSET("0x1C6FDB8"), ENCRYPTHEX("0x00008052C0035FD6"));
-	}
-
 	// patching offsets directly, without switch
 	// patchOffset(ENCRYPTOFFSET("0x1C68D54"), ENCRYPTHEX("0xC0035FD6"));
 	
@@ -32,71 +27,48 @@ void setup()
 		description:NSSENCRYPT("Game Anti-cheat manager is disabled.")
 	];
 
-	[switches addSwitch:NSSENCRYPT("Antiflash(switch)")
-		description:NSSENCRYPT("test.arm")
-	];
+	// Offset Switch with one patch
 
-	//Or check directly:
-	// if([switches isSwitchOn:NSSENCRYPT("Antiflash")]) 
-	// {
-		// patchOffset(ENCRYPTOFFSET("0x3404FB4"), ENCRYPTHEX("0x200080D2C0035FD6"));
-		// patchOffset(ENCRYPTOFFSET("0x1CED4D8"), ENCRYPTHEX("0x20008052C0035FD6"));
-		// patchOffset(ENCRYPTOFFSET("0x1C6FDB8"), ENCRYPTHEX("0xC0035FD6"));
-	// }
+	//                 Байты
 
-	// // Offset Switch with one patch
+	// 0xC0035FD6 - вернуть/завершить/выключить
 
-	[switches addOffsetSwitch:@"Money"
-				description:@"Money"
-					offsets:{0x1CA5CA4}
-					bytes:{"0x00008052C0035FD6"}];
+	// 0x00008052C0035FD6 - False/ложь/никогда
 
-	[switches addOffsetSwitch:NSSENCRYPT("Antiflash(offsetswitch)")
-	 	description:NSSENCRYPT("Antiflash(offsetswitch")
-	 	offsets: 
-		{
-	 		ENCRYPTOFFSET("0x1C6FDB8")
-	 	}
-	 	bytes: 
-		{
-	 		ENCRYPTHEX("0x00008052C0035FD6")
+	// 0x20008052C0035FD6 - True/истина/всегда
+
+	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
+	 	description:NSSENCRYPT("Antiflash (offsetswitch)")
+	 	offsets: {
+	 		// ENCRYPTOFFSET("0x10")
+			// ENCRYPTOFFSET("0x18")
+			// ENCRYPTOFFSET("0x20")
+			ENCRYPTOFFSET("0x1C6A7CC"), // get_Texture
+			ENCRYPTOFFSET("0x1C6A7F4"), // get_Enabled
+			ENCRYPTOFFSET("0x1C6A7FC"), // HHGFGHJMEHC
+			ENCRYPTOFFSET("0x1C6B650"), // IGECLAIGNPF
+			ENCRYPTOFFSET("0x1C6B71C"), // NCNEIBJAOPL
+			ENCRYPTOFFSET("0x1C6B44C"), // Update 91849 in FlashbangEffectController
+			ENCRYPTOFFSET("0x1C6A7EC"), // LICHKIPIGIK
+			ENCRYPTOFFSET("0x1C6A82C"), // ALDECIOGHEM in FlashbangEffectController
+	 		ENCRYPTOFFSET("0x1C6A8FC"), // KCDDEKGMLMN in FlashbangEffectController
+			ENCRYPTOFFSET("0x1C6B01C"), // DEMJCANGHDP in FlashbangEffectController
+			ENCRYPTOFFSET("0x1C6B2D8") // LFJPGJBMKNP in FlashbangEffectController
+		}
+	 	bytes: {
+	 		ENCRYPTHEX("0xC0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0xC0035FD6"),
+			ENCRYPTHEX("0xC0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6")
 		}
 	];
-
-	[switches addOffsetSwitch:NSSENCRYPT("Radar")
-	description:NSSENCRYPT("Radar Hack")
-				offsets:{
-		ENCRYPTOFFSET("0x1E17220") //оффсет
-	}
-						bytes: {
-		ENCRYPTHEX("0x20008052C0035FD6") //байт. В данном случае я использую True/истина/всегда. Показывать противников на радаре true 
-		}
-	];
-
-	[switches addOffsetSwitch:NSSENCRYPT("Radar2")
-	description:NSSENCRYPT("Radar Hack2")
-				offsets:{
-		ENCRYPTOFFSET("0x1E17558") //оффсет
-	}
-						bytes: {
-		ENCRYPTHEX("0x20008052C0035FD6") //байт. В данном случае я использую True/истина/всегда. Показывать противников на радаре true 
-		}
-	];
-
-	// // Offset switch with multiple patches
-	// [switches addOffsetSwitch:NSSENCRYPT("One Hit Kill")
-	// 	description:NSSENCRYPT("Enemy will die instantly")
-	// 	offsets: {
-	// 		ENCRYPTOFFSET("0x1001BB2C0"),
-	// 		ENCRYPTOFFSET("0x1002CB3B0"),
-	// 		ENCRYPTOFFSET("0x1002CB3B8")
-	// 	}
-	// 	bytes: {
-	// 		ENCRYPTHEX("0x00E0BF12C0035FD6"),
-	// 		ENCRYPTHEX("0xC0035FD6"),
-	// 		ENCRYPTHEX("0x00F0271E0008201EC0035FD6")
-	// 	}
-	// ];
 
 	// // Textfield Switch - used in hooking
 	// [switches addTextfieldSwitch:NSSENCRYPT("Custom Gold")
@@ -131,7 +103,7 @@ void setup()
 // If the menu button doesn't show up; Change the timer to a bigger amount.
 static void didFinishLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef info) 
 {
-	timer(5) {
+	timer(20) {
 		SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
 
 		// Website link, remove it if you don't need it.
@@ -150,7 +122,7 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;	 
 
 		[alert showSuccess: nil
-						subTitle:NSSENCRYPT("Openware") 
+						subTitle:NSSENCRYPT("Openware готов к запуску.") 
 							closeButtonTitle:nil
 								duration:60];
 	});
