@@ -40,37 +40,39 @@ void setup()
 	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
 	 	description:NSSENCRYPT("Antiflash (offsetswitch)")
 	 	offsets: {
-	 		// ENCRYPTOFFSET("0x10")
-			// ENCRYPTOFFSET("0x18")
-			// ENCRYPTOFFSET("0x20")
-			ENCRYPTOFFSET("0x1C6A7CC"), // get_Texture
-			ENCRYPTOFFSET("0x1C6A7F4"), // get_Enabled
-			ENCRYPTOFFSET("0x1C6A7FC"), // HHGFGHJMEHC
-			ENCRYPTOFFSET("0x1C6B650"), // IGECLAIGNPF
-			ENCRYPTOFFSET("0x1C6B71C"), // NCNEIBJAOPL
-			ENCRYPTOFFSET("0x1C6B44C"), // Update 91849 in FlashbangEffectController
-			ENCRYPTOFFSET("0x1C6A7EC"), // LICHKIPIGIK
+			// ENCRYPTOFFSET("0x1C6B44C"), // Update 91849 in FlashbangEffectController
+			//// ENCRYPTOFFSET("0x1C6A7CC"), // get_Texture in FlashbangEffect
+			//// ENCRYPTOFFSET("0x1C6A7F4"), // get_Enabled in FlashbangEffect
+			ENCRYPTOFFSET("0x1C6A7FC"), // HHGFGHJMEHC in FlashbangEffect
+			// ENCRYPTOFFSET("0x1C6B650"), // IGECLAIGNPF in FlashbangEffectController CRASH
+			ENCRYPTOFFSET("0x1C6B71C"), // NCNEIBJAOPL in FlashbangEffectController
+			ENCRYPTOFFSET("0x1C6A7EC"), // LICHKIPIGIK in FlashbangEffect
 			ENCRYPTOFFSET("0x1C6A82C"), // ALDECIOGHEM in FlashbangEffectController
 	 		ENCRYPTOFFSET("0x1C6A8FC"), // KCDDEKGMLMN in FlashbangEffectController
-			ENCRYPTOFFSET("0x1C6B01C"), // DEMJCANGHDP in FlashbangEffectController
-			ENCRYPTOFFSET("0x1C6B2D8") // LFJPGJBMKNP in FlashbangEffectController
+			// ENCRYPTOFFSET("0x1C6B01C"), // DEMJCANGHDP in FlashbangEffectController ФСЕГДА ЗАФЛЕШЕН
+			ENCRYPTOFFSET("0x1C6B2D8"), // LFJPGJBMKNP in FlashbangEffectController
+			ENCRYPTOFFSET("0x1C6B3A4"), // KOFEHBKLLJN in FlashBangEffectController
+			// ENCRYPTOFFSET("0x1C6B3F4"), // GFHDIDMBLAA in FlashBangEffectController
+			ENCRYPTOFFSET("0x1C6A824") // get_Duration in FlashbangEffect.CurveByAngle
 		}
 	 	bytes: {
-	 		ENCRYPTHEX("0xC0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6"),
-			ENCRYPTHEX("0xC0035FD6"),
-			ENCRYPTHEX("0xC0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6"),
-			ENCRYPTHEX("0x00008052C0035FD6")
+			//// ENCRYPTHEX("0x20008052C0035FD6"), // get_Texture in FlashbangEffect
+			//// ENCRYPTHEX("0x20008052C0035FD6"), // get_Enabled in FlashbangEffect
+			ENCRYPTHEX("0x20008052C0035FD6"), // HHGFGHJMEHC in FlashbangEffect
+			// ENCRYPTHEX("0x20008052C0035FD6"), // IGECLAIGNPF in FlashbangEffectController CRASH
+			ENCRYPTHEX("0x20008052C0035FD6"), // NCNEIBJAOPL in FlashbangEffectController 
+			ENCRYPTHEX("0x20008052C0035FD6"), // LICHKIPIGIK in FlashbangEffect
+			ENCRYPTHEX("0x20008052C0035FD6"), // ALDECIOGHEM in FlashbangEffectController
+	 		ENCRYPTHEX("0x20008052C0035FD6"), // KCDDEKGMLMN in FlashbangEffectController
+			// ENCRYPTHEX("0x20008052C0035FD6"), // DEMJCANGHDP in FlashbangEffectController ФСЕГДА ЗАФЛЕШЕН
+			ENCRYPTHEX("0x20008052C0035FD6"), // LFJPGJBMKNP in FlashbangEffectController
+			ENCRYPTHEX("0x20008052C0035FD6"), // KOFEHBKLLJN in FlashBangEffectController
+			// ENCRYPTHEX("0x20008052C0035FD6"), // GFHDIDMBLAA in FlashBangEffectController
+			ENCRYPTHEX("0x20008052C0035FD6") // get_Duration in FlashbangEffect.CurveByAngle
 		}
 	];
 
-	// // Textfield Switch - used in hooking
+	// Textfield Switch - used in hooking
 	// [switches addTextfieldSwitch:NSSENCRYPT("Custom Gold")
 	// 	description:NSSENCRYPT("Here you can enter your own gold amount")
 	// 	inputBorderColor:[UIColor colorWithRed: 0.01 green: 0.01 blue: 0.85 alpha: 1.00]
@@ -111,7 +113,7 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 
 		[alert addButton: NSSENCRYPT("Запустить") actionBlock: ^(void) 
 		{
-			timer(5) {
+			timer(1) {
 				#import "icons.h"
 				setup();
 			});
