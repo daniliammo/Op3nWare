@@ -1,4 +1,4 @@
-Package: com.gaifam.openware
+Package: ru.gaifam.openware
 Name: OpenWare
 Depends: mobilesubstrate
 Version: 0.1
