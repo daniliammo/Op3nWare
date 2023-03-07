@@ -1,3 +1,3 @@
 rm -r .theos
 rm -r packages
-make package
+make package install

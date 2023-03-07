@@ -1,5 +1,5 @@
-Package: ru.gaifam.openware
-Name: OpenWare
+Package: ru.gaifam.op3nware
+Name: Op3nware
 Depends: mobilesubstrate
 Version: 0.1
 Architecture: iphoneos-arm
@@ -7,4 +7,4 @@ Description: Open Mod menu
 Maintainer: DANILIAMMO
 Author: DANILIAMMO
 Section: Tweaks
-Homepage: https://github.com/daniliammo/OpenWare
+Homepage: https://github.com/daniliammo/Op3nWare

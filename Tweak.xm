@@ -21,12 +21,6 @@ void setup()
 	// spaces are fine too
 	/// patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0 03 5F D6"));
 
-
-	// Empty switch - usefull with hooking
-	[switches addSwitch:NSSENCRYPT("Antiban is enabled")
-		description:NSSENCRYPT("Game Anti-cheat manager is disabled.")
-	];
-
 	// Offset Switch with one patch
 
 	//                 Байты
@@ -37,38 +31,52 @@ void setup()
 
 	// 0x20008052C0035FD6 - True/истина/всегда
 
+
+	[switches addOffsetSwitch:NSSENCRYPT("Radar hack")
+	 	description:NSSENCRYPT("Radar hack (offsetswitch)")
+	 	offsets: {}
+		bytes:{}
+	]
+
+
 	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
 	 	description:NSSENCRYPT("Antiflash (offsetswitch)")
 	 	offsets: {
 			// ENCRYPTOFFSET("0x1C6B44C"), // Update 91849 in FlashbangEffectController
 			//// ENCRYPTOFFSET("0x1C6A7CC"), // get_Texture in FlashbangEffect
 			//// ENCRYPTOFFSET("0x1C6A7F4"), // get_Enabled in FlashbangEffect
-			ENCRYPTOFFSET("0x1C6A7FC"), // HHGFGHJMEHC in FlashbangEffect
+			/// ENCRYPTOFFSET("0x1C6A7FC"), // HHGFGHJMEHC in FlashbangEffect
 			// ENCRYPTOFFSET("0x1C6B650"), // IGECLAIGNPF in FlashbangEffectController CRASH
-			ENCRYPTOFFSET("0x1C6B71C"), // NCNEIBJAOPL in FlashbangEffectController
-			ENCRYPTOFFSET("0x1C6A7EC"), // LICHKIPIGIK in FlashbangEffect
-			ENCRYPTOFFSET("0x1C6A82C"), // ALDECIOGHEM in FlashbangEffectController
-	 		ENCRYPTOFFSET("0x1C6A8FC"), // KCDDEKGMLMN in FlashbangEffectController
+			/// ENCRYPTOFFSET("0x1C6B71C"), // NCNEIBJAOPL in FlashbangEffectController N
+			/// ENCRYPTOFFSET("0x1C6A7EC"), // LICHKIPIGIK in FlashbangEffect N
+			/// ENCRYPTOFFSET("0x1C6A82C"), // ALDECIOGHEM in FlashbangEffectController N
+	 		/// ENCRYPTOFFSET("0x1C6A8FC"), // KCDDEKGMLMN in FlashbangEffectController N 
 			// ENCRYPTOFFSET("0x1C6B01C"), // DEMJCANGHDP in FlashbangEffectController ФСЕГДА ЗАФЛЕШЕН
-			ENCRYPTOFFSET("0x1C6B2D8"), // LFJPGJBMKNP in FlashbangEffectController
-			ENCRYPTOFFSET("0x1C6B3A4"), // KOFEHBKLLJN in FlashBangEffectController
+			/// ENCRYPTOFFSET("0x1C6B2D8"), // LFJPGJBMKNP in FlashbangEffectController N
+
+			ENCRYPTOFFSET("0x1C6B3A4"), // KOFEHBKLLJN in FlashBangEffectController WORK
+
 			// ENCRYPTOFFSET("0x1C6B3F4"), // GFHDIDMBLAA in FlashBangEffectController
-			// ENCRYPTOFFSET("0x1C6A824") // get_Duration in FlashbangEffect.CurveByAngle
+			/// ENCRYPTOFFSET("0x1C6A824") // get_Duration in FlashbangEffect.CurveByAngle БЕЗ  НЕГО НЕ РАБОТАЕТ
 		}
 	 	bytes: {
 			//// ENCRYPTHEX("0x20008052C0035FD6"), // get_Texture in FlashbangEffect
 			//// ENCRYPTHEX("0x20008052C0035FD6"), // get_Enabled in FlashbangEffect
-			ENCRYPTHEX("0x20008052C0035FD6"), // HHGFGHJMEHC in FlashbangEffect
+			/// ENCRYPTHEX("0x20008052C0035FD6"), // HHGFGHJMEHC in FlashbangEffect
 			// ENCRYPTHEX("0x20008052C0035FD6"), // IGECLAIGNPF in FlashbangEffectController CRASH
-			ENCRYPTHEX("0x20008052C0035FD6"), // NCNEIBJAOPL in FlashbangEffectController 
-			ENCRYPTHEX("0x20008052C0035FD6"), // LICHKIPIGIK in FlashbangEffect
-			ENCRYPTHEX("0x20008052C0035FD6"), // ALDECIOGHEM in FlashbangEffectController
-	 		ENCRYPTHEX("0x20008052C0035FD6"), // KCDDEKGMLMN in FlashbangEffectController
+			/// ENCRYPTHEX("0x20008052C0035FD6"), // NCNEIBJAOPL in FlashbangEffectController N
+			/// ENCRYPTHEX("0x20008052C0035FD6"), // LICHKIPIGIK in FlashbangEffect N
+			/// ENCRYPTHEX("0x20008052C0035FD6"), // ALDECIOGHEM in FlashbangEffectController N
+	 		/// ENCRYPTHEX("0x20008052C0035FD6"), // KCDDEKGMLMN in FlashbangEffectController N
+
 			// ENCRYPTHEX("0x20008052C0035FD6"), // DEMJCANGHDP in FlashbangEffectController ФСЕГДА ЗАФЛЕШЕН
-			ENCRYPTHEX("0x20008052C0035FD6"), // LFJPGJBMKNP in FlashbangEffectController
-			ENCRYPTHEX("0x20008052C0035FD6"), // KOFEHBKLLJN in FlashBangEffectController
+
+			/// ENCRYPTHEX("0x20008052C0035FD6"), // LFJPGJBMKNP in FlashbangEffectController N
+
+			ENCRYPTHEX("0x00008052C0035FD6"), // KOFEHBKLLJN in FlashBangEffectController WORK
+
 			// ENCRYPTHEX("0x20008052C0035FD6"), // GFHDIDMBLAA in FlashBangEffectController
-			// ENCRYPTHEX("0x20008052C0035FD6") // get_Duration in FlashbangEffect.CurveByAngle
+			/// ENCRYPTHEX("0x20008052C0035FD6") // get_Duration in FlashbangEffect.CurveByAngle БЕЗ  НЕГО НЕ РАБОТАЕТ
 		}
 	];
 
@@ -105,7 +113,7 @@ void setup()
 // If the menu button doesn't show up; Change the timer to a bigger amount.
 static void didFinishLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef info) 
 {
-	timer(20) {
+	timer(25) {
 		SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
 
 		// Website link, remove it if you don't need it.
@@ -124,7 +132,7 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;	 
 
 		[alert showSuccess: nil
-						subTitle:NSSENCRYPT("Openware готов к запуску.") 
+						subTitle:NSSENCRYPT("Op3nware готов к запуску.\n Это окно закроется через 60 секунд") 
 							closeButtonTitle:nil
 								duration:60];
 	});

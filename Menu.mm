@@ -1,5 +1,5 @@
 //
-//  Menu.m
+//  Menu.mm
 //  ModMenu
 //
 //  Created by Joey on 3/14/19.
@@ -37,7 +37,7 @@ float scrollViewHeight = 0;
 BOOL hasRestoredLastSession = false;
 UIButton *menuButton;
 
-const char *frameworkName = NULL;
+const char *frameworkName = "UnityFramework";
 
 UIWindow *mainWindow;
 
