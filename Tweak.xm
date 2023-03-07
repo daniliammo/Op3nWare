@@ -53,7 +53,7 @@ void setup()
 			ENCRYPTOFFSET("0x1C6B2D8"), // LFJPGJBMKNP in FlashbangEffectController
 			ENCRYPTOFFSET("0x1C6B3A4"), // KOFEHBKLLJN in FlashBangEffectController
 			// ENCRYPTOFFSET("0x1C6B3F4"), // GFHDIDMBLAA in FlashBangEffectController
-			ENCRYPTOFFSET("0x1C6A824") // get_Duration in FlashbangEffect.CurveByAngle
+			// ENCRYPTOFFSET("0x1C6A824") // get_Duration in FlashbangEffect.CurveByAngle
 		}
 	 	bytes: {
 			//// ENCRYPTHEX("0x20008052C0035FD6"), // get_Texture in FlashbangEffect
@@ -68,7 +68,7 @@ void setup()
 			ENCRYPTHEX("0x20008052C0035FD6"), // LFJPGJBMKNP in FlashbangEffectController
 			ENCRYPTHEX("0x20008052C0035FD6"), // KOFEHBKLLJN in FlashBangEffectController
 			// ENCRYPTHEX("0x20008052C0035FD6"), // GFHDIDMBLAA in FlashBangEffectController
-			ENCRYPTHEX("0x20008052C0035FD6") // get_Duration in FlashbangEffect.CurveByAngle
+			// ENCRYPTHEX("0x20008052C0035FD6") // get_Duration in FlashbangEffect.CurveByAngle
 		}
 	];
 
