@@ -31,12 +31,29 @@ void setup()
 
 	// 0x20008052C0035FD6 - True/истина/всегда
 
+	[switches addSwitch:NSSENCRYPT("TEST")
+	 	description:NSSENCRYPT("TEST")
+	];
 
-	[switches addOffsetSwitch:NSSENCRYPT("Radar hack")
-	 	description:NSSENCRYPT("Radar hack (offsetswitch)")
-	 	offsets: {}
-		bytes:{}
-	]
+	[switches addOffsetSwitch:NSSENCRYPT("Бесконечные пули")
+	 	description:NSSENCRYPT("Бесконечные пули (offsetswitch) название метода в 0.22.2: public void GLDJJDNNCHB(short LFFGHMHNFCA) { }")
+	 	offsets: {ENCRYPTOFFSET("0x1CE21F8")}
+		bytes: {ENCRYPTHEX("0x20008052C0035FD6")}
+	];
+
+	// 0x1DA8540
+
+	[switches addOffsetSwitch:NSSENCRYPT("Buy Anywhere")
+	 	description:NSSENCRYPT("Buy Anywhere (offsetswitch) название метода в 0.22.2: [CompilerGenerated] private bool AKLKHMADMPI(WeaponBuyZone FHLHLJIOCOG) { } [CompilerGenerated] private bool BFLCNNBGIBE(WeaponBuyZone FHLHLJIOCOG) { }")
+	 	offsets: {
+			ENCRYPTOFFSET("0x1CE21F8"), // Исправить оффсет
+			ENCRYPTOFFSET("0x1DAA608")
+		}
+		bytes: {
+			ENCRYPTHEX("0x20008052C0035FD6"),
+			ENCRYPTHEX("0x20008052C0035FD6")
+			}
+	];
 
 
 	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
