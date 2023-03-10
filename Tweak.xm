@@ -31,12 +31,59 @@ void setup()
 
 	// 0x20008052C0035FD6 - True/истина/всегда
 
-	[switches addSwitch:NSSENCRYPT("TEST")
-	 	description:NSSENCRYPT("TEST")
+	[switches addSwitch:NSSENCRYPT("HOOK")
+	 	description:NSSENCRYPT("HOOK")
 	];
 
-	[switches addOffsetSwitch:NSSENCRYPT("Бесконечные пули")
-	 	description:NSSENCRYPT("Бесконечные пули (offsetswitch) название метода в 0.22.2: public void GLDJJDNNCHB(short LFFGHMHNFCA) { }")
+	// 0x1CDD6D8
+	[switches addOffsetSwitch:NSSENCRYPT("FPS Hack")
+	 	description:NSSENCRYPT("FPS Hack (offsetswitch) название метода в 0.22.2: private void Update() { } В Классе public class FpsCounter : HudComponentView")
+	 	offsets: {ENCRYPTOFFSET("0x1CDD6D8")}
+		bytes: {ENCRYPTHEX("0x200080D2C0035FD6")}
+	];
+
+	// 0x1C5E908
+	[switches addOffsetSwitch:NSSENCRYPT("No Recoil")
+		description:NSSENCRYPT("No recoil Название метода в 0.22.2: private bool MCCLJAABJJB() { } В Классе public class GunController : WeaponController")
+		offsets: {ENCRYPTOFFSET("0x1C5E908")}
+		bytes: {ENCRYPTHEX("0xC0035FD6")}
+	];
+
+	[switches addOffsetSwitch:NSSENCRYPT("Plant Anywhere")
+		description:NSSENCRYPT("Plant Anywhere Название метода в 0.22.2: internal bool FALEEMFLIPN(BombSite zone) { }, internal bool FALEEMFLIPN(BombSite zone) { }, internal bool DHOAFHJBDMD(BombSite site) { } В Классе [CompilerGenerated] private sealed class BombManager")
+		offsets: {
+			ENCRYPTOFFSET("0x1C9B54C"),
+			ENCRYPTOFFSET("0x1C9B57C"),
+			ENCRYPTOFFSET("0x1C9B5C4")
+		}
+		bytes: {
+			ENCRYPTHEX("0x200080D2C0035FD6"),
+			ENCRYPTHEX("0x200080D2C0035FD6"),
+			ENCRYPTHEX("0x200080D2C0035FD6")
+		}
+	];
+
+	[switches addOffsetSwitch:NSSENCRYPT("Fast Plant")
+		description:NSSENCRYPT("Fast plant Название метода в 0.22.2: public float get_PlantDuration() { } В Классе public class BombParameters : WeaponParameters")
+		offsets: {ENCRYPTOFFSET("0x1C9BD8C")}
+		bytes: {ENCRYPTHEX("0xE003271EC0035FD6")}
+	];
+
+	[switches addOffsetSwitch:NSSENCRYPT("Jump Hack")
+		description:NSSENCRYPT("Jump Hack Название метода в 0.22.2: public bool get_isGrounded() { } В Классе public class CharacterController : Collider")
+		offsets: {ENCRYPTOFFSET("0x3429078")}
+		bytes: {ENCRYPTHEX("0x20008052C0035FD6")}
+	];
+
+	// 0x1DA44DC
+	[switches addOffsetSwitch:NSSENCRYPT("Respawn Hack")
+	 	description:NSSENCRYPT("Respawn Hack (offsetswitch) название метода в 0.22.2: protected override bool LINGLJOKGAO() { } В Классе public class DefuseController : GameController, PHGAGIAPKBA")
+	 	offsets: {ENCRYPTOFFSET("0x1DA44DC")}
+		bytes: {ENCRYPTHEX("0x20008052C0035FD6")}
+	];	
+
+	[switches addOffsetSwitch:NSSENCRYPT("Infinite ammo")
+	 	description:NSSENCRYPT("Infinite ammo (offsetswitch) название метода в 0.22.2: public void GLDJJDNNCHB(short LFFGHMHNFCA) { } В Классе public class GJAECFAPFAL")
 	 	offsets: {ENCRYPTOFFSET("0x1CE21F8")}
 		bytes: {ENCRYPTHEX("0x20008052C0035FD6")}
 	];
@@ -44,56 +91,25 @@ void setup()
 	// 0x1DA8540
 
 	[switches addOffsetSwitch:NSSENCRYPT("Buy Anywhere")
-	 	description:NSSENCRYPT("Buy Anywhere (offsetswitch) название метода в 0.22.2: [CompilerGenerated] private bool AKLKHMADMPI(WeaponBuyZone FHLHLJIOCOG) { } [CompilerGenerated] private bool BFLCNNBGIBE(WeaponBuyZone FHLHLJIOCOG) { }")
+	 	description:NSSENCRYPT("Buy Anywhere (offsetswitch) название метода в 0.22.2: [CompilerGenerated] private bool AKLKHMADMPI(WeaponBuyZone FHLHLJIOCOG) { } [CompilerGenerated] private bool BFLCNNBGIBE(WeaponBuyZone FHLHLJIOCOG) { } В Классе public class DefuseController : GameController, PHGAGIAPKBA")
 	 	offsets: {
-			ENCRYPTOFFSET("0x1CE21F8"), // Исправить оффсет
+			ENCRYPTOFFSET("0x1DA8540"),
 			ENCRYPTOFFSET("0x1DAA608")
 		}
 		bytes: {
 			ENCRYPTHEX("0x20008052C0035FD6"),
 			ENCRYPTHEX("0x20008052C0035FD6")
-			}
+		}
 	];
 
 
 	[switches addOffsetSwitch:NSSENCRYPT("Antiflash")
-	 	description:NSSENCRYPT("Antiflash (offsetswitch)")
+	 	description:NSSENCRYPT("Antiflash (offsetswitch) название метода в 0.22.2: public override void FPCHKPJFNPP(Vector3 BOOCCOPLJNH) { } В Классе public class FlashbangEffectController : GrenadeEffectController")
 	 	offsets: {
-			// ENCRYPTOFFSET("0x1C6B44C"), // Update 91849 in FlashbangEffectController
-			//// ENCRYPTOFFSET("0x1C6A7CC"), // get_Texture in FlashbangEffect
-			//// ENCRYPTOFFSET("0x1C6A7F4"), // get_Enabled in FlashbangEffect
-			/// ENCRYPTOFFSET("0x1C6A7FC"), // HHGFGHJMEHC in FlashbangEffect
-			// ENCRYPTOFFSET("0x1C6B650"), // IGECLAIGNPF in FlashbangEffectController CRASH
-			/// ENCRYPTOFFSET("0x1C6B71C"), // NCNEIBJAOPL in FlashbangEffectController N
-			/// ENCRYPTOFFSET("0x1C6A7EC"), // LICHKIPIGIK in FlashbangEffect N
-			/// ENCRYPTOFFSET("0x1C6A82C"), // ALDECIOGHEM in FlashbangEffectController N
-	 		/// ENCRYPTOFFSET("0x1C6A8FC"), // KCDDEKGMLMN in FlashbangEffectController N 
-			// ENCRYPTOFFSET("0x1C6B01C"), // DEMJCANGHDP in FlashbangEffectController ФСЕГДА ЗАФЛЕШЕН
-			/// ENCRYPTOFFSET("0x1C6B2D8"), // LFJPGJBMKNP in FlashbangEffectController N
-
-			ENCRYPTOFFSET("0x1C6B3A4"), // KOFEHBKLLJN in FlashBangEffectController WORK
-
-			// ENCRYPTOFFSET("0x1C6B3F4"), // GFHDIDMBLAA in FlashBangEffectController
-			/// ENCRYPTOFFSET("0x1C6A824") // get_Duration in FlashbangEffect.CurveByAngle БЕЗ  НЕГО НЕ РАБОТАЕТ
+			ENCRYPTOFFSET("0x1C6AAB0")
 		}
 	 	bytes: {
-			//// ENCRYPTHEX("0x20008052C0035FD6"), // get_Texture in FlashbangEffect
-			//// ENCRYPTHEX("0x20008052C0035FD6"), // get_Enabled in FlashbangEffect
-			/// ENCRYPTHEX("0x20008052C0035FD6"), // HHGFGHJMEHC in FlashbangEffect
-			// ENCRYPTHEX("0x20008052C0035FD6"), // IGECLAIGNPF in FlashbangEffectController CRASH
-			/// ENCRYPTHEX("0x20008052C0035FD6"), // NCNEIBJAOPL in FlashbangEffectController N
-			/// ENCRYPTHEX("0x20008052C0035FD6"), // LICHKIPIGIK in FlashbangEffect N
-			/// ENCRYPTHEX("0x20008052C0035FD6"), // ALDECIOGHEM in FlashbangEffectController N
-	 		/// ENCRYPTHEX("0x20008052C0035FD6"), // KCDDEKGMLMN in FlashbangEffectController N
-
-			// ENCRYPTHEX("0x20008052C0035FD6"), // DEMJCANGHDP in FlashbangEffectController ФСЕГДА ЗАФЛЕШЕН
-
-			/// ENCRYPTHEX("0x20008052C0035FD6"), // LFJPGJBMKNP in FlashbangEffectController N
-
-			ENCRYPTHEX("0x00008052C0035FD6"), // KOFEHBKLLJN in FlashBangEffectController WORK
-
-			// ENCRYPTHEX("0x20008052C0035FD6"), // GFHDIDMBLAA in FlashBangEffectController
-			/// ENCRYPTHEX("0x20008052C0035FD6") // get_Duration in FlashbangEffect.CurveByAngle БЕЗ  НЕГО НЕ РАБОТАЕТ
+			ENCRYPTHEX("0xC0035FD6")
 		}
 	];
 
@@ -134,6 +150,15 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
 
 		// Website link, remove it if you don't need it.
+
+		[alert addButton: NSSENCRYPT("Пожаловаться на продавца (Report)") actionBlock: ^(void) {
+			[[UIApplication sharedApplication] openURL: [NSURL URLWithString: NSSENCRYPT("T.ME/DANILIAMMO")]];
+			timer(1) {
+				#import "icons.h"
+				setup();
+			});
+		}];
+
 		[alert addButton: NSSENCRYPT("Не запускать") actionBlock: ^(void) {	}];
 
 		[alert addButton: NSSENCRYPT("Запустить") actionBlock: ^(void) 
@@ -149,7 +174,7 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;	 
 
 		[alert showSuccess: nil
-						subTitle:NSSENCRYPT("Op3nware готов к запуску.\n Это окно закроется через 60 секунд") 
+						subTitle:NSSENCRYPT("Op3nware не продается. Если вы купили Op3nware пожалуйста, пожалуйтесь на продавца сюда: T.ME/DANILIAMMO\nOp3nware is not for sale. If you bought Op3nware please report the seller here: T.ME/DANILIAMMO") 
 							closeButtonTitle:nil
 								duration:60];
 	});
