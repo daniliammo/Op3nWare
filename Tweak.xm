@@ -35,6 +35,32 @@ void setup()
 	 	description:NSSENCRYPT("HOOK")
 	];
 
+	// 0x1C58524
+	[switches addOffsetSwitch:NSSENCRYPT("Wall Shot")
+	 	description:NSSENCRYPT("Wall Shot (offsetswitch) название метода в 0.22.2: public override float BLBDEDPMCMO(HIIDKIGGAHG POHHEDDMNIM, float HHEJAONKIKI) { } В Классе public class BCKEJFLKOPF : GLGMDNDIIED (Рядом с енумом private enum HitCaster.ALPPBHCAFOJ)")
+	 	offsets: {ENCRYPTOFFSET("0x1C58524")}
+		bytes: {ENCRYPTHEX("0x00F0271EC0035FD6")}
+	];
+
+	[switches addOffsetSwitch:NSSENCRYPT("One Hit Kill")
+	 	description:NSSENCRYPT("One Hit Kill (offsetswitch)")
+	 	offsets: {
+			ENCRYPTOFFSET("0x1C45BE0"),
+			ENCRYPTOFFSET("0x1C45C08"),
+			ENCRYPTOFFSET("0x1C45C28"),
+			ENCRYPTOFFSET("0x1C45FA0"),
+			ENCRYPTOFFSET("0x1C45F80")
+		}
+		bytes: {
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6"),
+			ENCRYPTHEX("0x00008052C0035FD6")
+		}
+	];
+
+
 	// 0x1CDD6D8
 	[switches addOffsetSwitch:NSSENCRYPT("FPS Hack")
 	 	description:NSSENCRYPT("FPS Hack (offsetswitch) название метода в 0.22.2: private void Update() { } В Классе public class FpsCounter : HudComponentView")

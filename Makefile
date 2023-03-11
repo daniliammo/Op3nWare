@@ -36,22 +36,22 @@ MENU_SRC = Menu.mm
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = OpenWare
+TWEAK_NAME = Op3nWare
 
-OpenWare_CFLAGS = -fobjc-arc
-OpenWare_CCFLAGS = -std=c++11 -fno-rtti -fno-exceptions -DNDEBUG
+Op3nWare_CFLAGS = -fobjc-arc
+Op3nWare_CCFLAGS = -std=c++11 -fno-rtti -fno-exceptions -DNDEBUG
 
 ifeq ($(IGNORE_WARNINGS),1)
-  OpenWare_CFLAGS += -w
-  OpenWare_CCFLAGS += -w
+  Op3nWare_CFLAGS += -w
+  Op3nWare_CCFLAGS += -w
 endif
 
 
-OpenWare_FILES = Tweak.xm $(MENU_SRC) $(KITTYMEMORY_SRC) $(SCLALERTVIEW_SRC)
+Op3nWare_FILES = Tweak.xm $(MENU_SRC) $(KITTYMEMORY_SRC) $(SCLALERTVIEW_SRC)
 
-OpenWare_LIBRARIES += substrate
+Op3nWare_LIBRARIES += substrate
 
-OpenWare_FRAMEWORKS = $(PROJ_COMMON_FRAMEWORKS)
+Op3nWare_FRAMEWORKS = $(PROJ_COMMON_FRAMEWORKS)
 # GO_EASY_ON_ME = 1
 
 include $(THEOS_MAKE_PATH)/tweak.mk
