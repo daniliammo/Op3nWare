@@ -150,16 +150,7 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
 
 		// Website link, remove it if you don't need it.
-
-		[alert addButton: NSSENCRYPT("Пожаловаться на продавца (Report)") actionBlock: ^(void) {
-			[[UIApplication sharedApplication] openURL: [NSURL URLWithString: NSSENCRYPT("T.ME/DANILIAMMO")]];
-			timer(1) {
-				#import "icons.h"
-				setup();
-			});
-		}];
-
-		[alert addButton: NSSENCRYPT("Не запускать") actionBlock: ^(void) {	}];
+		[alert addButton: NSSENCRYPT("Не запускать") actionBlock: ^(void) { }];
 
 		[alert addButton: NSSENCRYPT("Запустить") actionBlock: ^(void) 
 		{
@@ -174,7 +165,7 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;	 
 
 		[alert showSuccess: nil
-						subTitle:NSSENCRYPT("Op3nware не продается. Если вы купили Op3nware пожалуйста, пожалуйтесь на продавца сюда: T.ME/DANILIAMMO\nOp3nware is not for sale. If you bought Op3nware please report the seller here: T.ME/DANILIAMMO") 
+						subTitle:NSSENCRYPT("Op3nware не продается. Если вы купили Op3nware пожалуйста, пожалуйтесь на продавца сюда: T.ME/Op3nware_bot\nOp3nware is not for sale. If you bought Op3nware please report the seller here: T.ME/Op3nware_bot") 
 							closeButtonTitle:nil
 								duration:60];
 	});
