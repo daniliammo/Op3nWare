@@ -2,21 +2,14 @@
 // [menu setFrameworkName:"UnityFramework"];
 
 menu = [[Menu alloc]
-	// If a game uses a framework as base executable, you can enter the name here.
-	// For example: UnityFramework, in that case you have to replace NULL with "UnityFramework" (note the quotes)
-	    
 
-	/********************************************************************
-		Once menu has been initialized, it will run the setup functions. 
-		All of your switches should be entered in the setup() function!
-	*********************************************************************/
 	initWithTitle:NSSENCRYPT("Op3nware DEBIAN")
 	titleColor:[UIColor blackColor]
 	titleFont:NSSENCRYPT("Avenir")
 	credits:NSSENCRYPT("Op3nware DEBIAN v0.2 t.me/Op3nware_bot")
-	headerColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.7]	// White
-	switchOffColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.7] // White
-	switchOnColor:[UIColor colorWithRed: 0.01 green: 0.01 blue: 0.85 alpha: 0.7] // Blue
+	headerColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.7]	// Light
+	switchOffColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.7] // Light
+	switchOnColor:[UIColor colorWithRed: 0.34 green: 0.72 blue: 0.27 alpha: 0.7] // Green #57b846
 	switchTitleFont:NSSENCRYPT("Avenir")
 	switchTitleColor:[UIColor blackColor]
 	infoButtonColor:[UIColor blackColor]

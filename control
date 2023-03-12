@@ -1,7 +1,7 @@
 Package: ru.gaifam.op3nware
 Name: Op3nware
 Depends: mobilesubstrate
-Version: 0.1
+Version: 0.2
 Architecture: iphoneos-arm
 Description: Op3nware Mod menu for Standoff 0.22.2
 Maintainer: DANILIAMMO

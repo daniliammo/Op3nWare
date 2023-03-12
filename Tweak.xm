@@ -31,8 +31,44 @@ void setup()
 
 	// 0x20008052C0035FD6 - True/истина/всегда
 
-	[switches addSwitch:NSSENCRYPT("HOOK")
-	 	description:NSSENCRYPT("HOOK")
+	[switches addSwitch:NSSENCRYPT("Dark Theme")
+	 	description:NSSENCRYPT("Dark Theme. Требуется перезагрузка игры.")
+	];
+
+	[switches addOffsetSwitch:NSSENCRYPT("Team Radar")
+	 	description:NSSENCRYPT("Team Radar (offsetswitch) название метода в 0.22.2: private void JCNNKAPBAMB(byte IFJFLAGGCCL, bool IMNNENLPCKI) { } В Классе public class WeaponryController : Controller, HFKOMFDEEIA, LMMDCGBNHBN")
+	 	offsets: {
+			ENCRYPTOFFSET("0x1E090FC"),
+			ENCRYPTOFFSET("0x1E0932C"),
+			ENCRYPTOFFSET("0x1E0961C")
+		}
+		bytes: {
+			ENCRYPTHEX("0xC0035FD6"),
+			ENCRYPTHEX("0xC0035FD6"),
+			ENCRYPTHEX("0xC0035FD6")
+		}
+	];
+
+	// 0x1DFD72C
+	[switches addOffsetSwitch:NSSENCRYPT("No Drop")
+	 	description:NSSENCRYPT("No Drop (offsetswitch) название метода в 0.22.2: private void JCNNKAPBAMB(byte IFJFLAGGCCL, bool IMNNENLPCKI) { } В Классе public class WeaponryController : Controller, HFKOMFDEEIA, LMMDCGBNHBN")
+	 	offsets: {ENCRYPTOFFSET("0x1DFD72C")}
+		bytes: {ENCRYPTHEX("0x200080D2C0035FD6")}
+	];
+
+	// 0x1CE1E90
+	[switches addOffsetSwitch:NSSENCRYPT("Stop Time")
+	 	description:NSSENCRYPT("Stop Time (offsetswitch) название метода в 0.22.2: public double FGGHPGOOHPH() { } В Классе public class NMLAIGIJBLP")
+	 	offsets: {ENCRYPTOFFSET("0x1CA5CA4")}
+		bytes: {ENCRYPTHEX("0xC0035FD6")}
+	];
+
+
+	// 0x1CA5CA4
+	[switches addOffsetSwitch:NSSENCRYPT("Money Hack")
+	 	description:NSSENCRYPT("Money Hack (offsetswitch) название метода в 0.22.2: public GameObject get_Prefab() { } В Классе public class BulletTraceEffectParams : ScriptableObject")
+	 	offsets: {ENCRYPTOFFSET("0x1CA5CA4")}
+		bytes: {ENCRYPTHEX("0x00008052C0035FD6")}
 	];
 
 	// 0x1C58524
@@ -181,7 +217,13 @@ static void didFinishLaunching(CFNotificationCenterRef center, void *observer, C
 		[alert addButton: NSSENCRYPT("Запустить") actionBlock: ^(void) 
 		{
 			timer(1) {
-				#import "icons.h"
+				bool isOn = [switches isSwitchOn:NSSENCRYPT("Dark Theme")];
+				if(isOn == true) {
+					#import "Themes/Dark.h"
+				}
+				if(isOn == false){
+					#import "Themes/Light.h"
+				}
 				setup();
 			});
 		}];	
