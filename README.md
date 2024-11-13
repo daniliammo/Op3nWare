@@ -18,6 +18,6 @@ Standoff 2 iOS Mod Menu
 
 **Дополнительная информация**
 
-KittyMemory изменен и не будет работать без изменений.
+[KittyMemory](https://github.com/MJx0/KittyMemory) изменен и не будет работать без изменений.
 
 [SCLAlertView](github.com/joeyjurjens/iOS-Mod-Menu-Template-for-Theos) не изменен.
